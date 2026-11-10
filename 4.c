@@ -10,13 +10,12 @@ void print_enter()
 
 void scalar_product(int a[], int b[], int n, int threads_num)
 {
-    int i;
     int result = 0;
     
     #pragma omp parallel num_threads(threads_num) reduction(+: result)
     {
         #pragma omp for
-            for (i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
                 result += a[i] * b[i];
             }

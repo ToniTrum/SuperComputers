@@ -10,14 +10,13 @@ void print_enter()
 
 void search_min_max(int a[], int n, int threads_num)
 {
-    int i;
     int global_min = RAND_MAX;
     int global_max = -1;
     
     #pragma omp parallel num_threads(threads_num) reduction(min: global_min) reduction(max: global_max)
     {
         #pragma omp for
-            for (i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
                 if (a[i] < global_min)
                 {

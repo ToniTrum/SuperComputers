@@ -14,12 +14,11 @@ int main(int argc, char *argv[])
     
     double start = omp_get_wtime();
 
-    long long i;
     double pi = 0;
     #pragma omp parallel reduction(+: pi)
     {
         #pragma omp for
-            for (i = 0; i < N; i++)
+            for (long long i = 0; i < N; i++)
             {
                 double x_i = (i + 0.5) / N;
                 pi += 4.0 / (1.0 + x_i * x_i);
