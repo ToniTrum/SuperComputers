@@ -44,6 +44,8 @@ int main(int argc, char *argv[])
         }
     }
 
+    omp_destroy_lock(&lock);
+
     printf("result = [ ");
     for (int i = 0; i < n; i++) 
     {
